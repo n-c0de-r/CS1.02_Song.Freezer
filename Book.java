@@ -71,6 +71,11 @@ class Book
     	printAuthor();
     	printTitle();
     	printPages();
+    	
+    	// Only print the reference number, if it is set (not length 0).
+    	if (refNumber.length() != 0)  {
+    		printReferenceNumber();
+    	}
     }
     
     /**
