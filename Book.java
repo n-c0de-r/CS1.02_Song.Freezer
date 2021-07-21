@@ -10,6 +10,7 @@ class Book
 {
     // The fields.
     private String author;
+    private String refNumber;
     private String title;
     private int pages;
     
@@ -41,6 +42,15 @@ class Book
     public int getPages()
     {
     	return pages;
+    }
+    
+    /**
+     * Get the book's reference number.
+     * @return	The reference number of this book.
+     */
+    public String getRefNumber()
+    {
+    	return refNumber;
     }
     
     /**
@@ -80,10 +90,36 @@ class Book
     }
     
     /**
+     * Prints the book's reference number.
+     */
+    public void printReferenceNumber()
+    {
+    	System.out.println("Reference Number: " + refNumber);
+    }
+    
+    /**
      * Prints the book's title.
      */
     public void printTitle()
     {
     	System.out.println("Title: " + title);
+    }
+    
+    /**
+     * Set a reference number for this book.
+     * @param num	The number to set.
+     */
+    public void setRefNumber(String num)
+    {
+    	// Only set the reference number if it's of a certain length.
+    	if(num.length()>= 3)
+    	{
+    		refNumber = num;
+    	}
+    	// Otherwise prompt a message.
+    	else
+    	{
+    		System.out.println("Please input a longer ID.");
+    	}
     }
 }
