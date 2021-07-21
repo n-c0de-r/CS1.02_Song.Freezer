@@ -1,6 +1,6 @@
 /**
  * A simple heater, controlled by the
- * methods "warmer" and "cooler".
+ * methods "cooler" and "warmer".
  * 
  * @author	n-c0de-r
  * @version	2021.07.21
@@ -50,6 +50,23 @@ public class Heater {
 			temperature = newMax;
 		}
 	}
+	
+	/**
+	 * Reduce the temperature by the increment value.
+	 */
+	public void cooler() {
+		// Check if the decrement is lower than min, ...
+		if ((temperature - increment) < min) {
+			// ... if so, set to min.
+			temperature = min;
+		} else {
+			// ... if not, set to desired temperature
+			temperature = temperature - increment;
+		}
+		
+		// Same result, one line solution!
+		// temperature = Math.max(min, temperature - increment);
+	}
 
 	/**
 	 * Increase the temperature by the increment value.
@@ -66,23 +83,6 @@ public class Heater {
 		
 		// Same result, one line solution!
 		// temperature = Math.min(max, temperature + increment);
-	}
-
-	/**
-	 * Reduce the temperature by the increment value.
-	 */
-	public void cooler() {
-		// Check if the decrement is lower than min, ...
-//		if ((temperature - increment) < min) {
-//			// ... if so, set to min.
-//			temperature = min;
-//		} else {
-//			// ... if not, set to desired temperature
-//			temperature = temperature - increment;
-//		}
-		
-		// Same result, one line solution!
-		 temperature = Math.max(min, temperature - increment);
 	}
 
 	/**
