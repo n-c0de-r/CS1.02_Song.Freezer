@@ -53,6 +53,17 @@ class Book
     }
     
     /**
+     * Prints all the details of the book.
+     */
+    public void printDetails()
+    {
+    	//Calls all the following methods, that deal with the details.
+    	printAuthor();
+    	printTitle();
+    	printPages();
+    }
+    
+    /**
      * Prints the author's name.
      */
     public void printAuthor()
