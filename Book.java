@@ -18,9 +18,10 @@ class Book
      * Set the author and title fields when this object
      * is constructed.
      */
-    public Book(String bookAuthor, String bookTitle, int bookPages)
+    public Book(String bookAuthor, String bookReference, String bookTitle, int bookPages)
     {
         author = bookAuthor;
+        refNumber = bookReference;
         title = bookTitle;
         pages = bookPages;
     }
@@ -117,7 +118,7 @@ class Book
     public void setRefNumber(String num)
     {
     	// Only set the reference number if it's of a certain length.
-    	if(num.length()>= 3)
+    	if(num.length() >= 3)
     	{
     		refNumber = num;
     	}
