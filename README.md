@@ -26,4 +26,4 @@ Descriptions from the original files:
  
  <img src="Book_show.gif">
  
- <img src="Heater_show.gif"
+ <img src="Heater_show.gif">
