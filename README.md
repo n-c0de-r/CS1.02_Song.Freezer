@@ -25,5 +25,11 @@ Descriptions from the original files:
  @version 2021.07.21
  
  <img src="Book_show.gif">
+
+ A simple heater, controlled by the
+ methods "cooler" and "warmer".
+ 
+ @author    n-c0de-r
+ @version    2021.07.21
  
  <img src="Heater_show.gif">
