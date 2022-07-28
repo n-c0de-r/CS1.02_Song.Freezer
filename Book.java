@@ -3,8 +3,9 @@
  * This might form part of a larger application such
  * as a library system, for instance.
  *
- * @author n-c0de-r
+ * @author  n-c0de-r
  * @version 2021.07.21
+ * @version 2022.07.28
  */
 class Book
 {
@@ -13,54 +14,88 @@ class Book
     private String refNumber;
     private String title;
     private int pages;
+    private int borrowed;
+    private final boolean courseText;
     
     /**
-     * Set the author and title fields when this object
-     * is constructed.
+     * Set the author and title fields
+     * when this object is constructed.
      */
-    public Book(String bookAuthor, String bookReference, String bookTitle, int bookPages)
+    public Book(String bookAuthor, String bookReference, String bookTitle,
+                int bookPages, boolean isText)
     {
         author = bookAuthor;
         refNumber = bookReference;
         title = bookTitle;
         pages = bookPages;
+        borrowed = 0;
+        courseText = isText;
     }
 
     // Add the methods here ...
     /**
+     * Increases the number of times a book was borrowed.
+     */
+    public void borrow()
+    {
+        borrowed = borrowed + 1;
+        
+        // Same as above:
+        // borrowed += 1;
+        // borrowed++;
+    }
+    
+    /**
      * Get the book's author's name.
-     * @return	The name of this book's author.
+     * @return    The name of this book's author.
      */
     public String getAuthor()
     {
-    	return author;
+        return author;
+    }
+    
+    /**
+     * Get the number of times the book was borrowed.
+     * @return      The integer number of times borrowed.
+     */
+    public int getBorrowed()
+    {
+        return borrowed;
     }
     
     /**
      * Get the book's number of pages.
-     * @return	The pages count of this book.
+     * @return    The pages count of this book.
      */
     public int getPages()
     {
-    	return pages;
+        return pages;
     }
     
     /**
      * Get the book's reference number.
-     * @return	The reference number of this book.
+     * @return    The reference number of this book.
      */
     public String getRefNumber()
     {
-    	return refNumber;
+        return refNumber;
     }
     
     /**
      * Get the book's title.
-     * @return	The title of this book.
+     * @return    The title of this book.
      */
     public String getTitle()
     {
-    	return title;
+        return title;
+    }
+    
+    /**
+     * Returns the boolean value of a book being a course text.
+     */
+    public boolean isCourseText()
+    {
+        return courseText;
     }
     
     /**
@@ -68,15 +103,16 @@ class Book
      */
     public void printDetails()
     {
-    	//Calls all the following methods, that deal with the details.
-    	printAuthor();
-    	printTitle();
-    	printPages();
-    	
-    	// Only print the reference number, if it is set (not length 0).
-    	if (refNumber.length() != 0)  {
-    		printReferenceNumber();
-    	}
+        //Calls all the following methods, that deal with the details.
+        printAuthor();
+        printTitle();
+        printPages();
+        
+        // Only print the reference number, if it is set (not length 0).
+        if (refNumber.length() != 0)  {
+            printReferenceNumber();
+        }
+        printBorrowed();
     }
     
     /**
@@ -84,7 +120,15 @@ class Book
      */
     public void printAuthor()
     {
-    	System.out.println("Author: " + author);
+        System.out.println("Author: " + author);
+    }
+    
+    /**
+     * Prints the times a book was borrowed.
+     */
+    public void printBorrowed()
+    {
+        System.out.println("Borrowed " + borrowed + " times.");
     }
     
     /**
@@ -92,7 +136,7 @@ class Book
      */
     public void printPages()
     {
-    	System.out.println("Pages: " + pages);
+        System.out.println("Pages: " + pages);
     }
     
     /**
@@ -100,7 +144,7 @@ class Book
      */
     public void printReferenceNumber()
     {
-    	System.out.println("Reference Number: " + refNumber);
+        System.out.println("Reference Number: " + refNumber);
     }
     
     /**
@@ -108,24 +152,24 @@ class Book
      */
     public void printTitle()
     {
-    	System.out.println("Title: " + title);
+        System.out.println("Title: " + title);
     }
     
     /**
      * Set a reference number for this book.
-     * @param num	The number to set.
+     * @param num    The number to set.
      */
     public void setRefNumber(String num)
     {
-    	// Only set the reference number if it's of a certain length.
-    	if(num.length() >= 3)
-    	{
-    		refNumber = num;
-    	}
-    	// Otherwise prompt a message.
-    	else
-    	{
-    		System.out.println("Please input a longer ID.");
-    	}
+        // Only set the reference number if it's of a certain length.
+        if(num.length() >= 3)
+        {
+            refNumber = num;
+        }
+        // Otherwise prompt a message.
+        else
+        {
+            System.out.println("Please input a longer ID.");
+        }
     }
 }
