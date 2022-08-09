@@ -16,16 +16,15 @@ class Book
     private int pages;
     private int borrowed;
     private final boolean courseText;
-    
+
     /**
      * Set the author and title fields
      * when this object is constructed.
      */
-    public Book(String bookAuthor, String bookReference, String bookTitle,
-                int bookPages, boolean isText)
+    public Book(String bookAuthor, String bookTitle, int bookPages, boolean isText)
     {
         author = bookAuthor;
-        refNumber = bookReference;
+        refNumber = "";
         title = bookTitle;
         pages = bookPages;
         borrowed = 0;
@@ -39,12 +38,12 @@ class Book
     public void borrow()
     {
         borrowed = borrowed + 1;
-        
+
         // Same as above:
         // borrowed += 1;
         // borrowed++;
     }
-    
+
     /**
      * Get the book's author's name.
      * @return    The name of this book's author.
@@ -53,7 +52,7 @@ class Book
     {
         return author;
     }
-    
+
     /**
      * Get the number of times the book was borrowed.
      * @return      The integer number of times borrowed.
@@ -62,7 +61,7 @@ class Book
     {
         return borrowed;
     }
-    
+
     /**
      * Get the book's number of pages.
      * @return    The pages count of this book.
@@ -71,7 +70,7 @@ class Book
     {
         return pages;
     }
-    
+
     /**
      * Get the book's reference number.
      * @return    The reference number of this book.
@@ -80,7 +79,7 @@ class Book
     {
         return refNumber;
     }
-    
+
     /**
      * Get the book's title.
      * @return    The title of this book.
@@ -89,7 +88,7 @@ class Book
     {
         return title;
     }
-    
+
     /**
      * Returns the boolean value of a book being a course text.
      */
@@ -97,7 +96,7 @@ class Book
     {
         return courseText;
     }
-    
+
     /**
      * Prints all the details of the book.
      */
@@ -107,14 +106,11 @@ class Book
         printAuthor();
         printTitle();
         printPages();
-        
-        // Only print the reference number, if it is set (not length 0).
-        if (refNumber.length() != 0)  {
-            printReferenceNumber();
-        }
+        printReferenceNumber();
         printBorrowed();
+        printCourseText();
     }
-    
+
     /**
      * Prints the author's name.
      */
@@ -122,7 +118,7 @@ class Book
     {
         System.out.println("Author: " + author);
     }
-    
+
     /**
      * Prints the times a book was borrowed.
      */
@@ -130,7 +126,7 @@ class Book
     {
         System.out.println("Borrowed " + borrowed + " times.");
     }
-    
+
     /**
      * Prints the book's pages number.
      */
@@ -138,23 +134,54 @@ class Book
     {
         System.out.println("Pages: " + pages);
     }
-    
+
+    /**
+     * Prints the book's course text status.
+     */
+    public void printCourseText()
+    {
+        // Usual solution, BUT lots of duplications
+        if(isCourseText())
+        {
+            System.out.println("This book is used as a text book on a course.");
+        }
+        else
+        {
+            System.out.println("This book is not used as a text book on a course.");
+        }
+
+        // Alternative solution with only one if statement to avoid duplication
+        //String text = "This book is ";
+        //if (!isCourseText())
+        //{
+        //    text += "not "; // Add the only different word if it is needed.
+        //}
+        //text += "used as a text book on a course.";
+        //System.out.println(text); // Print only the resulting text
+    }
+
     /**
      * Prints the book's reference number.
      */
     public void printReferenceNumber()
     {
-        System.out.println("Reference Number: " + refNumber);
+        String reference = "No reference number";
+        // Only print the reference number, if it is set (not length 0).
+        if (refNumber.length() != 0)
+        {
+            reference = "Reference Number: " + refNumber; // Exchange text to print
+        }
+        System.out.println(reference); // Print either text.
     }
-    
+
     /**
      * Prints the book's title.
      */
     public void printTitle()
     {
-        System.out.println("Title: " + title);
+        System.out.println("Title: " + title);       
     }
-    
+
     /**
      * Set a reference number for this book.
      * @param num    The number to set.
