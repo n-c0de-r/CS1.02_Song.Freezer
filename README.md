@@ -1,8 +1,8 @@
 Descriptions from the original files:
 
- A class that maintains information on a book.
+ A class that maintains information on a song.
  This might form part of a larger application such
- as a library system, for instance.
+ as a music player system, for instance.
  
  Based on the original by David J. Barnes and Michael Kölling
  
