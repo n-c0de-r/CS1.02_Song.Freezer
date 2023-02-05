@@ -1,33 +1,32 @@
 /**
- * A simple heater, controlled by the
+ * A simple freezer, controlled by the
  * methods "cooler" and "warmer".
  * 
- * @author	n-c0de-r
- * @version	2021.07.21
- * @version 2022.07.28
+ * @author  n-c0de-r
+ * @version 2023.02.05
  */
 
-public class Heater {
+public class Freezer {
     private int temperature;
     private int min;
     private int max;
     private int increment;
 
     /**
-     * Constructor for objects of class Heater.
+     * Constructor for objects of class Freezer.
      * 
-     * @param newMin The minimum temperature allowed for this heater.
-     * @param newMax The maximum temperature allowed for this heater.
+     * @param newMin The minimum temperature allowed for this freezer.
+     * @param newMax The maximum temperature allowed for this freezer.
      */
-    public Heater(int newMin, int newMax) {
+    public Freezer(int newMin, int newMax) {
         // Simple check for conflicting min and max values
         // If the minimum is higher than the max, set fixed values.
         if (newMin > newMax) {
             System.out.println("Sorry, that is not possible.");
-            System.out.println("The minimum will be set to 0.");
-            System.out.println("The maximum will be set to 60.");
-            newMin = 0;
-            newMax = 60;
+            System.out.println("The minimum will be set to -20.");
+            System.out.println("The maximum will be set to 0.");
+            newMin = -60;
+            newMax = 0;
         }
         
         // Initialize instance variables
@@ -84,7 +83,9 @@ public class Heater {
     }
 
     /**
-     * Get the current temperature set to the heater.
+     * Get the current temperature set to the freezer.
+     * 
+     * @return  The currently set temperature.
      */
     public int getTemperature() {
         return temperature;
